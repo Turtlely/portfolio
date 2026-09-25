@@ -1,0 +1,100 @@
+body {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: #ede0d4;
+}
+
+hr {
+    width: 100%
+}
+
+h1, h2, h3 {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+p, li {
+    font-size: large;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.page-contents {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about {
+    margin: 0;
+    max-width: 500px;
+    text-align: left;
+}
+
+.post-summary {
+    margin: 1px;
+    margin-left: 30px;
+}
+.post-link {
+    text-decoration: none;
+    color: inherit; 
+    font-weight: 500; 
+}
+a.post-link:hover {
+    color: #B65E52;
+}
+
+
+li {
+    margin-bottom: 5px;
+}
+
+.xkcd {
+    margin: 0;
+    max-width: 100%;
+    text-align: left;
+    font-size: 0;
+}
+
+.xkcd img {
+    width:100%;
+    height: auto;
+    max-width: 750px;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer {
+    margin: 0;
+    max-width: 100%;
+    text-align: center;
+}

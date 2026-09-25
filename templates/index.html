@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block header %}{% endblock %}
+{% block content %}
+<div class="profile">
+    <div>
+        {% include "header.html" %}
+        <p>
+            Course 6-5+8<br>
+            Electrical Engineering with Computing + Physics<br>
+            Massachusetts Institute of Technology '29<br>
+            <a href="mailto:ryantang@mit.edu" style="text-decoration: none;">ryantang@mit.edu</a> | 
+            <a href="https://www.linkedin.com/in/ryantang--/" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"> linkedin </a> | 
+            <a href="https://github.com/Turtlely" style="text-decoration: none;" target="_blank" rel="noopener noreferrer"> github </a> | 
+            <a href="/resume.pdf" style="text-decoration: none;" download> resume</a>
+        </p>
+        <div class="about">
+            <h1>
+                about
+            </h1>
+            <p>
+                &emsp;&emsp;Hello! I'm an electrical engineering and physics major at MIT. Here you'll find a list of the projects I've been working on, as well as their writeups (when i find the time to do them).
+                I also occasionally posts detailing my thoughts or interesting things that i've learnt.<br>
+                &emsp;&emsp;From my major you can probably already tell that I'm interested in electrical engineering and physics, but i've also recently been getting into hardware hacking, functional programming, type theory, lean/physlean, and signal processing.
+                I spend a lot of my free time working on the MIT satelite team as the instrumentation lead where i've been designing a compact uv-vis spectrometer to fly on a satelite and high altitude balloon. 
+                otherwise, you can catch me in the stata loading docks crufting old hardware to probe unsecured uart shells or repairing broken electronics.
+            </p>
+        </div>
+    </div>
+    <img src="/media/headshot.jpg" alt="headshot" width="400" height="400">
+</div>    
+
+<div class="projects">
+    <hr>
+    <h1>
+        projects
+    </h1>
+    <ul style="list-style-type: '◇ ';">
+        {% for project in projects %}
+            <li><a class="post-link" href="{{ project.url }}">{{ project.title }}</a></a>
+                <p class="post-summary">{{ project.summary }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="posts">
+    <h1>
+        posts
+    </h1>
+    <ul style="list-style-type: '◇ ';">
+        {% for post in posts %}
+            <li>{{ post.date }} | <a href="{{ post.url }}" class="post-link"> {{post.title}}</a> </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="photography">
+    <h1>
+        photography
+    </h1>
+    <p> I like to do some astrophotography and occasionally take some nice pictures</p>
+    <img id="random-photo" src="{{ photos[0] }}" alt="Random photo" style="width: auto; height: 500px; display: block; margin: auto;">
+    <script>
+        const photos = {{ photos | tojson }};
+        const img = document.getElementById("random-photo");
+        img.src = photos[Math.floor(Math.random() * photos.length)];
+    </script>
+</div>
+<div class="footer">
+    <h1 style="text-align: left;">
+        xkcd
+    </h1>
+    <div class="xkcd">
+        <a href="https://xkcd.com/"> <script src="https://rss.bloople.net/?url=https%3A%2F%2Fxkcd.com%2Frss.xml&limit=1&showtitle=false&type=js"></script> </a>
+    </div>
+    <hr>
+</div>
+<p>
+    This site is made with just html and css. I use <a href="https://jinja.palletsprojects.com/en/stable/" style="text-decoration: none;">Jinja</a> for 
+    converting markdown files into html pages. under the hood its hosted on github pages. 
+</p>
+</div>
+{% endblock %}
+
