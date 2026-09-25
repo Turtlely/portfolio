@@ -3,11 +3,12 @@ body {
     margin-bottom: 100px;
     margin-right: 50px;
     margin-left: 50px;
-    background-color: #ede0d4;
+    background-color: #fffdf7;
 }
 
 hr {
-    width: 100%
+    width: 100%;
+    margin-bottom: 0px;
 }
 
 h1, h2, h3 {
@@ -73,7 +74,6 @@ a.post-link:hover {
     color: #B65E52;
 }
 
-
 li {
     margin-bottom: 5px;
 }
@@ -97,4 +97,26 @@ li {
     margin: 0;
     max-width: 100%;
     text-align: center;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: column;
+}
+.post-header h1 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+}
+.post-header p {
+    margin-top: 0.1em;
+}
+
+.markdown-body pre, 
+.highlight pre {
+    background-color: #f5e6ca;
+}
+
+.markdown-body blockquote {
+    color: #4b3832;
+    border-left: .25em solid #6f4e37;
 }

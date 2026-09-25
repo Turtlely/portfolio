@@ -2,7 +2,12 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    <p><time>{{ date }}</time></p>
-    {{content | safe }}
+    <div class="post-header">
+        <h1>{{ title }} </h1>
+        <p>Published on <time>{{ date }}</time></p>
+    </div>
+    
+    <article class="markdown-body">
+        {{content | safe }}
+    </article>
 {% endblock %}

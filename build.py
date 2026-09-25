@@ -27,7 +27,9 @@ OUTPUT_DIR.mkdir()
 posts = []
 for path in POSTS_DIR.glob("*.md"):
     post = frontmatter.load(path, encoding="utf-8")
-    html = markdown.markdown(post.content, extensions=["fenced_code", "tables"])
+    html = markdown.markdown(post.content, extensions=["fenced_code", "tables", "codehilite"], extension_configs={
+        "codehilite": {"guess_lang": False},
+    },)
     template = env.get_template(post.get("template", DEFAULT_TEMPLATE))
     page = template.render(title=post["title"], date=post["date"], content=html)
     slug = path.stem
@@ -41,7 +43,9 @@ posts.sort(key=lambda p: p["date"], reverse=True)
 projects = []
 for path in PROJECTS_DIR.glob("*.md"):
     proj = frontmatter.load(path, encoding="utf-8")
-    html = markdown.markdown(proj.content, extensions=["fenced_code", "tables"])
+    html = markdown.markdown(proj.content, extensions=["fenced_code", "tables", "codehilite"], extension_configs={
+        "codehilite": {"guess_lang": False},
+    },)
     template = env.get_template(proj.get("template", DEFAULT_TEMPLATE))
     page = template.render(title=proj["title"], date=proj["date"], summary=proj.get("summary",""), content=html)
     slug = path.stem
