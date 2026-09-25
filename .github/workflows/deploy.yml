@@ -6,7 +6,7 @@ on:
   workflow_displatch:
 
 permissions:
-  contents :read
+  contents : read
   pages: write
   id_token: write
 
