@@ -1,8 +1,9 @@
 ---
-title: Hello World!
-date: 2026-09-25
+title: markdown test file
+date: 2025-09-25
 template: post.html
 summary: blank
+visible: "false"
 ---
 
 This is the first post i've put up on the new site.

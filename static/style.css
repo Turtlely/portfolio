@@ -24,7 +24,7 @@ p, li {
     font-size: large;
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 350;
+    font-weight: 400;
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
@@ -109,6 +109,10 @@ li {
 }
 .post-header p {
     margin-top: 0.1em;
+}
+
+.markdown-body {
+    font-weight: 400;
 }
 
 .markdown-body pre, 

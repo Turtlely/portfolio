@@ -25,33 +25,43 @@ if OUTPUT_DIR.exists():
 OUTPUT_DIR.mkdir()
 
 posts = []
-for path in POSTS_DIR.glob("*.md"):
+for path in POSTS_DIR.glob("*/*.md"):
     post = frontmatter.load(path, encoding="utf-8")
     html = markdown.markdown(post.content, extensions=["fenced_code", "tables", "codehilite"], extension_configs={
         "codehilite": {"guess_lang": False},
     },)
     template = env.get_template(post.get("template", DEFAULT_TEMPLATE))
+    if post["visible"] == "false":
+        continue
     page = template.render(title=post["title"], date=post["date"], content=html)
-    slug = path.stem
+    slug = path.parent.name
     out_file = OUTPUT_DIR / "posts" / slug / "index.html"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(page, encoding="utf-8")
+    for file in path.parent.iterdir():
+        if file.is_file() and file.suffix != ".md":
+            shutil.copy2(file, out_file.parent / file.name)
     posts.append({"title": post["title"], "date": post["date"], "url":f"/posts/{slug}/"})
 
 posts.sort(key=lambda p: p["date"], reverse=True)
 
 projects = []
-for path in PROJECTS_DIR.glob("*.md"):
+for path in PROJECTS_DIR.glob("*/*.md"):
     proj = frontmatter.load(path, encoding="utf-8")
     html = markdown.markdown(proj.content, extensions=["fenced_code", "tables", "codehilite"], extension_configs={
         "codehilite": {"guess_lang": False},
     },)
     template = env.get_template(proj.get("template", DEFAULT_TEMPLATE))
+    if proj["visible"] == "false":
+        continue
     page = template.render(title=proj["title"], date=proj["date"], summary=proj.get("summary",""), content=html)
-    slug = path.stem
+    slug = path.parent.name
     out_file = OUTPUT_DIR / "projects" / slug / "index.html"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(page, encoding="utf-8")
+    for file in path.parent.iterdir():
+        if file.is_file() and file.suffix != ".md":
+            shutil.copy2(file, out_file.parent / file.name)
     projects.append({"title": proj["title"], "date": proj["date"], "summary": proj.get("summary",""), "url":f"/projects/{slug}/"})
 
 projects.sort(key=lambda p: p["date"], reverse=True)
