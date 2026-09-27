@@ -6,6 +6,19 @@ body {
     background-color: #fffdf7;
 }
 
+.footer hr {
+    width: 100%;
+    margin-bottom: 0px;
+    border: 2px dotted grey;
+    border-style: none none dotted; 
+    color: #fff; 
+    background-color: #fff;
+}
+
+.footnote p {
+    font-size: small;
+}
+
 hr {
     width: 100%;
     margin-bottom: 0px;

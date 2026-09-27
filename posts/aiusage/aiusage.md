@@ -1,0 +1,32 @@
+---
+title: my approach to using ai in my life
+date: 2026-09-27
+template: post.html
+summary: what I use AI for in my life
+visible: "true"
+---
+AI is no doubt one of the most transformative technologies that has swept the world in the past few years. however I think that improper use of ai tools has the potential to *seriously* cause harm to your mental facilities and self-reliance. 
+
+with the rise of the ability to have anything you want made for you at a moments notice with minimal input from yourself, is the onslaught of "ai-slop" that has wrecked the internet. in a short summary, ai-slop is essentially low-effort and mass-produced content (be it text, images, code, etc) that seeks to provide some kind of short-term pleasure or gratification. The result of this is often media/projects that may appear superficially impressive or interesting but are actually quite devoid of anything interesting when you look deeper.
+
+I think that the creation of ai-slop stems from a sense of carelessness in regards to what is produced. hence I think that it is more necessary now than ever to have clear definitions for what you want to get out of your life, projects, and tasks. sometimes its alright to make some ai slop if you really don't care about the output. sometimes im just a little curious about seeing if a project is possible so i might have an agent spin something up quickly. but in the end i really dont feel any sense of ownership or pride over this project and i dont feel comfortable claiming it as my work. 
+
+I think that using ai to help make projects is alright when done in a way that accomplishes your original goals. My goals for projects are essentially just to learn some skill or task, on top of the more instrumental goal of accomplishing XYZ. For me these are near equal in importance, so I meter my ai usage accordingly so that I feel satisfied by the end of the project.
+
+In practice this means that I often only use ai to answer my questions as to how to accomplish something, to teach me a concept in a more broad/general sense, or to give rough design recomendations/implementations that I'm responsible for actually executing.
+
+Here are some examples:
+
+I created this website because I was curious about how websites/web-dev/networking/internet work. I also wanted to learn some basic web-dev skills and have a place to put my own thoughts and projects. As such, I haven't copy pasted the output of Claude or any other LLM into the codebase of this website. It's essentially all pure HTML or CSS or JS that I wrote myself, although I used LLMs to teach me the process of web development and networking. As a rough heuristic of satisfiability, I am roughly capable of explaining each line of code in the codebase at both a low and high level in regards to what it contributes to the website. The design decisions and such for the website are also entirely mine. 
+
+Some of the projects listed such as the spectrometer were indeed designed with the help of AI. for EE purposes, I find that LLMs can be quite good at teaching best practices for PCB design and EE in general, finding engineering design standards typical in industry to produce higher quality PCBs and more readable schematics etc, selecting components for a project given a set of constraints, and generally answering EE questions. I find that LLMs tend to be very poor at actual hardware design ie laying out schematics or PCBs or routing (I have actually tried my hand at creating some LLM autorouting tools). This may change in the future, but I do not intend to have AI route PCBs for me or design schematics because these are skills that I want to develop further personally before i offload it to a bot.
+
+The firmware for the spectrometer is a special case, as the majority of it is actually generated with AI. however to be honest I do not feel as "proud" of this code or feel particular ownership of it. Additionally i do think that the quality of code in that codebase is quite poor and I've been working slowly to deobfuscate the codebase one line at a time. This is quite a lengthy process (as you may expect of LLM output allowed to run unchecked for days), but I am slowly fixing and improving the program via my own understanding and debugging. I plan on eventually rewriting the project myself, but for now due to time constraints it'll have to be ai slop for now.
+
+Some other software projects such as the 32-bit CPU also have the help of AI. for these projects, my goal was primarily to learn a bit of computer architecture but also the hardware design workflow (verilog -> netlist -> bitstream implementation via vivado, yosys etc). As such the majority of code in these projects is indeed written by hand although the process of creating the code was assisted with AI (ie teaching me syntax, how to create modules, how certain instructions in RV32I can be implemented etc). Again as a rough heuristic, I can explain every part of these projects as well as their design decisions. 
+
+Generally I feel that satisfying AI use can be verified via an understanding of what is created. I imagine that its alright to have AI write boilerplate code and otherwise mundane tasks, or even to make certain design decisions in a project. However the point at which you no longer understand what is being created or why decisions are being made is the point at which the project is not really yours anymore. If that matters to you, then you should try to avoid such a dependence on AI. otherwise, slop away happily!
+
+As we move into a future where AI can do a lot of work faster and better than humans, we should remember why we do what we do. I personally dont write code for the sake of writing code or create electronics projects for the sake of creating electronics projects. I strive to learn new things and develop more skills and knowledge, so I aim to use AI in a way that serves as an effective instrument to accomplish these goals.
+
+Finally, none of the writing in my blogposts or project writeups will ever be automated by AI. I write each one by hand! The most that AI is used is to verify correctness of things that I say (as I do not want to spout misinformation). I write these blogposts for my own personal understanding/learning as well as to share what I find interesting with anyone who cares to read them. As such automating the writing of these posts with AI would be pretty counterproductive and essentially a waste of time.
