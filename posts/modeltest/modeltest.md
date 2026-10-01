@@ -3,7 +3,7 @@ title: modeltest
 date: 2026-09-27
 template: post.html
 summary: blank
-visible: "true"
+visible: "false"
 ---
 # Ta da!
 Look at my 3d model!

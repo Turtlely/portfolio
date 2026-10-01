@@ -4,6 +4,7 @@ date: 2026-09-27
 template: post.html
 summary: 200-500nm UV-VIS spectrometer for deployment in a high altitude balloon and LEO
 visible: "true"
+priority: "0"
 ---
 I have been developing this 200-500nm spectrometer over the last few months so I figured that I should do a quick writeup summarizing my work thus far.
 

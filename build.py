@@ -27,8 +27,9 @@ OUTPUT_DIR.mkdir()
 posts = []
 for path in POSTS_DIR.glob("*/*.md"):
     post = frontmatter.load(path, encoding="utf-8")
-    html = markdown.markdown(post.content, extensions=["fenced_code", "tables", "codehilite"], extension_configs={
+    html = markdown.markdown(post.content, extensions=["fenced_code", "tables", "codehilite", "attr_list", "pymdownx.arithmatex"], extension_configs={
         "codehilite": {"guess_lang": False},
+        "pymdownx.arithmatex": {"generic": True},
     },)
     template = env.get_template(post.get("template", DEFAULT_TEMPLATE))
     if post["visible"] == "false":
@@ -48,8 +49,9 @@ posts.sort(key=lambda p: p["date"], reverse=True)
 projects = []
 for path in PROJECTS_DIR.glob("*/*.md"):
     proj = frontmatter.load(path, encoding="utf-8")
-    html = markdown.markdown(proj.content, extensions=["fenced_code", "tables", "codehilite"], extension_configs={
+    html = markdown.markdown(proj.content, extensions=["fenced_code", "tables", "codehilite", "attr_list", "pymdownx.arithmatex"], extension_configs={
         "codehilite": {"guess_lang": False},
+        "pymdownx.arithmatex": {"generic": True},
     },)
     template = env.get_template(proj.get("template", DEFAULT_TEMPLATE))
     if proj["visible"] == "false":
@@ -62,9 +64,9 @@ for path in PROJECTS_DIR.glob("*/*.md"):
     for file in path.parent.iterdir():
         if file.is_file() and file.suffix != ".md":
             shutil.copy2(file, out_file.parent / file.name)
-    projects.append({"title": proj["title"], "date": proj["date"], "summary": proj.get("summary",""), "url":f"/projects/{slug}/"})
+    projects.append({"title": proj["title"], "date": proj["date"], "summary": proj.get("summary",""), "url":f"/projects/{slug}/", "priority":proj["priority"]})
 
-projects.sort(key=lambda p: p["date"], reverse=True)
+projects.sort(key=lambda p: p["priority"], reverse=False)
 
 photo_files = [p for p in PHOTOS_DIR.rglob("*") if p.suffix.lower() in IMAGE_TYPES]
 photos = sorted("/" + p.relative_to(STATIC_DIR).as_posix() for p in photo_files)
